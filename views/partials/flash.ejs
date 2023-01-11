@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade show" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <% if(param === success) { %>
+                <div class="modal-body alert-success">
+            <% } else { %>
+                <div class="modal-body alert-danger">
+            <% } %>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading"><%= param %></h4>
+                <% if(param === success) { %>
+                    <div class="mt-3 success-fun-fact p-3">
+                <% } else { %>
+                    <div class="mt-3 error-fun-fact p-3">
+                <% } %>
+                    <h5 class="text-center"><strong>Did you know?</strong></h5>
+                    <h5 class="lead font-weight-bolder" style="word-wrap: break-word;"><%= fact.fact %></h5>
+                    <% if(typeof(fact.desc) !== 'undefined') { %>
+                        <p><%= fact.desc %></p>
+                    <% } %>
+                </div>
+                <hr>
+                <p class="mb-0">For any queries and feedback, write a mail to adithya18062000@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</div>

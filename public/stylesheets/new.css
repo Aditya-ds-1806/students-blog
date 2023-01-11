@@ -1,0 +1,22 @@
+.bg-light {
+    background-color: #7A2865!important;
+}
+
+.form-div {
+    margin-top: 100px;
+}
+
+.form-control, .note-editor.note-frame {
+    border-radius: 0;
+    border-color: #7A2865!important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(122, 40, 101, 0.4);
+    border-color: #7A2865;
+}
+
+div.note-editor .btn-light {
+    background-color: #FFF;
+    border-color: rgba(0, 0, 0, 0.3);
+}

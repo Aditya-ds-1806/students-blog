@@ -1,0 +1,87 @@
+<% if(param.length === 0) { %>
+<span>No posts to display :-(</span>
+<% } %>
+<div class="row row-cols-1 text-left" id="post-container">
+  <% for (var i = param.length - 1; i >= 0; i--) { %>
+  <div class="col mb-5">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4 bg-card-img" style="background-image: url('<%= param[i].image %>');"></div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="dropdown dropleft">
+              <h5 class="card-title mb-0"><a href="/blogs/<%= param[i].id %>"
+                  class="text-body"><%= param[i].title %></a>
+                <% if (!param[i].approved && !param[i].isDraft) { %>
+                <i class="fas fa-info-circle text-warning"></i>
+                <% } %>
+                <% if (param[i].isDraft) { %>
+                <i class="fab fa-firstdraft text-secondary"></i>
+                <% } %>
+                <% if (typeof(isAdmin) !== 'undefined' && isAdmin && !param[i].isDraft) { %>
+                <div class="custom-control custom-switch float-right ml-3">
+                  <input type="checkbox" class="custom-control-input"
+                    id="<% if(typeof(type) !== 'undefined') { %><%= type + '-' %><% } %><%= param[i].id %>"
+                    <% if(param[i].approved) { %><%= 'checked' %><% } %>>
+                  <label class="custom-control-label"
+                    for="<% if(typeof(type) !== 'undefined') { %><%= type + '-' %><% } %><%= param[i].id %>"></label>
+                </div>
+                <% } %>
+                <button class="btn btn-white float-right p-0" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <!-- <i class="fas fa-ellipsis-v"></i> -->
+                  <i class="fas fa-share-alt"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" target="_blank"
+                    href="https://www.facebook.com/sharer.php?u=https://blog-ece-iiitdm.herokuapp.com/blogs/<%= param[i].id %>"><i
+                      class="fab fa-facebook-f mr-2"></i>Facebook</a>
+                  <a class="dropdown-item" target="_blank"
+                    href="https://twitter.com/share?url=https://blog-ece-iiitdm.herokuapp.com/blogs/<%= param[i].id %>"><i
+                      class="fab fa-lg fa-twitter mr-2"></i>Twitter</a>
+                  <a class="dropdown-item" target="_blank"
+                    href="https://api.whatsapp.com/send?text=https://blog-ece-iiitdm.herokuapp.com/blogs/<%= param[i].id %>"><i
+                      class="fab fa-lg fa-whatsapp mr-2"></i>Whatsapp</a>
+                  <a class="dropdown-item" target="_blank"
+                    href="mailto:?Subject=<%= param[i].title %>&Body=Check%20out%20this%20post%20at%20ece.iiitdm.ac.in:%0Ahttps://blog-ece-iiitdm.herokuapp.com/blogs/<%= param[i].id %>"><i
+                      class="far fa-lg fa-envelope mr-2"></i>Gmail</a>
+                </div>
+              </h5>
+            </div>
+            <small>
+              <a href=<%= "/profile/" + param[i].authorID %> class="text-dark"><i
+                  class="fas fa fa-user mr-1"></i><%= param[i].author %></a>
+            </small>
+            <small>
+              <i class="fas fa fa-calendar-alt ml-2 mr-1 text-dark"></i><%= dateToMoment(param[i].date) %>
+            </small>
+            <p class="card-text mt-3 mt-sm-2"><%= htmlToText.fromString(param[i].post).substring(0, 300) %> . . .</p>
+            <div class="d-flex align-items-center row">
+              <div class="col-12 col-sm-6 text-center text-sm-left" id="<%= param[i].id %>">
+                <span
+                  class="like-stats<% if(typeof(user) !== 'undefined' && user.likedPosts.includes(param[i].id)) { %><%= ' liked' %><% } %>">
+                  <i class="far fa-heart fa-lg"></i>
+                  <span class="ml-1 ml-sm-2"><%= param[i].likes %></span>
+                </span>
+                <span class="comment-stats ml-4">
+                  <i class="far fa-comments fa-lg"></i>
+                  <span class="ml-2"><%= param[i].comments.length %></span>
+                </span>
+                <span
+                  class="bookmark-stats ml-4<% if(typeof(user) !== 'undefined' && user.bookmarkedPosts.includes(param[i].id)) { %><%= ' bookmarked' %><% } %>">
+                  <i class="far fa-bookmark fa-lg"></i>
+                  <span class="ml-2"><%= param[i].bookmarks %></span>
+                </span>
+              </div>
+              <div class="col-12 col-sm-6 mt-3 mt-sm-0 text-center text-sm-right">
+                <a href="/blogs/<%= param[i].id %>"
+                  class="btn btn-success rounded-0 btn-sm ml-auto font-weight-bolder d-block d-sm-inline">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>

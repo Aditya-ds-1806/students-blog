@@ -1,0 +1,17 @@
+<div class="row mb-2">
+    <div class="col-2 col-md-1">
+        <img class="rounded-circle" src="<%= post.comments[i].image %>" width="40">
+    </div>
+    <div class="col-10 col-md-11">
+        <small>
+            <strong><a class="text-dark"
+                    href="/profile/<%= post.comments[i].userID %>"><%= post.comments[i].user %></a></strong>
+            <span class="text-muted ml-2"><%= dateToMoment(post.comments[i].date) %></span>
+            <% if (typeof user !== 'undefined' && post.comments[i].userID.toString() === user.id) { %>
+            <i class="far fa-trash-alt fa-lg text-danger float-right" id="<%= post.comments[i]._id %>"></i>
+            <% } %>
+        </small>
+        <pre class="initialism"><%= post.comments[i].text %></pre>
+        <hr>
+    </div>
+</div>

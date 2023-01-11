@@ -1,0 +1,6 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<%- include("partials/create-update-form", {heading: "Edit your post", edit: true, post: post, isAdmin: isAdmin, loggedInUser: user}) %>
+
+<%- include("partials/footer") %>

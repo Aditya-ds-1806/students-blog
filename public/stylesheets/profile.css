@@ -1,0 +1,110 @@
+.bg-light {
+	background-color: #7a2865 !important;
+}
+
+#profile-pic {
+	width: 200px;
+	height: 200px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.active:hover {
+	background-color: #7a2865;
+}
+
+.nav-pills a.nav-link {
+	color: #7a2865;
+	font-weight: 500;
+}
+
+.nav-pills a.nav-link:hover {
+	background-color: #e4c9dd;
+}
+
+#v-pills-liked-posts-tab {
+	color: #dc3545;
+}
+
+#v-pills-liked-posts-tab .badge {
+	background-color: #dc3545;
+}
+
+#v-pills-bookmarks-tab {
+	color: #28a745;
+}
+
+#v-pills-bookmarks-tab .badge {
+	background-color: #28a745;
+}
+
+#v-pills-posts-tab {
+	color: #007bff;
+}
+
+#v-pills-posts-tab .badge {
+	background-color: #007bff;
+}
+
+#v-pills-NYA-tab {
+	color: #ffc107;
+}
+
+#v-pills-NYA-tab .badge {
+	background-color: #ffc107;
+}
+
+#v-pills-drafts-tab {
+	color: #6c757d;
+}
+
+#v-pills-drafts-tab .badge {
+	background-color: #6c757d;
+}
+
+#v-pills-posts-tab.active .badge,
+#v-pills-bookmarks-tab.active .badge,
+#v-pills-liked-posts-tab.active .badge,
+#v-pills-NYA-tab.active .badge,
+#v-pills-drafts-tab.active .badge {
+	color: #7a2865;
+	background-color: #fff;
+}
+
+.nav-pills .nav-link.active .fa-heart,
+.nav-pills .nav-link.active .fa-bookmark,
+.nav-pills .nav-link.active .fa-newspaper,
+.nav-pills .nav-link.active .fa-info-circle,
+.nav-pills .nav-link.active .fa-firstdraft,
+#v-pills-posts-tab.active,
+#v-pills-bookmarks-tab.active,
+#v-pills-liked-posts-tab.active,
+#v-pills-NYA-tab.active,
+#v-pills-drafts-tab.active {
+	color: #fff !important;
+}
+
+.modal-content {
+	background-color: #f2f2f2;
+}
+
+i.fa-edit {
+	position: absolute;
+	left: calc(50% + 75px);
+	cursor: pointer;
+}
+
+.form-control,
+.note-editor.note-frame {
+	border-radius: 0;
+	border-color: #7a2865 !important;
+}
+
+textarea.form-control {
+	resize: none;
+	overflow: hidden;
+}
+
+.form-control:focus {
+	box-shadow: 0 0 0 0.2rem rgba(122, 40, 101, 0.4);
+	border-color: #7a2865;
+}

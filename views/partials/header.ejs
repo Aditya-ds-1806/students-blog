@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- For Mobiles/Tablets  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- For Android - Supported by Chrome, Firefox and Opera  -->
+  <meta name="theme-color" content="#7A2865">
+  <!-- For Windows Phones  -->
+  <meta name="msapplication-navbutton-color" content="#7A2865">
+  <!-- For iOS Safari  -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <!-- Fontawesome Icon Library 4.7.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
+    integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 4.3.1-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Navbar styles -->
+  <link rel="stylesheet" href="/stylesheets/navbar.css">
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <!-- Navbar styles -->
+  <% if (typeof route !== 'undefined' && (route == "index" || route == "profile" || route == "admin")) { %>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <% } %>
+
+  <% if (typeof route !== 'undefined' && route == "admin") { %>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+  <% } %>
+
+  <% if (typeof route !== 'undefined' && route == "profile") { %>
+  <link rel="stylesheet" href="/stylesheets/profile.css">
+  <link rel="stylesheet" href="/stylesheets/post.css">
+  <% } %>
+
+  <% if (typeof route !== 'undefined' && route == "show") { %>
+  <link rel="stylesheet" href="/stylesheets/show.css">
+  <link rel="stylesheet" href="/stylesheets/comments.css">
+  <% } %>
+
+  <% if (typeof route !== 'undefined' && (route == "new" || route == "edit")) { %>
+  <link rel="stylesheet" href="/stylesheets/new.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+  <% } %>
+
+  <title>Home | Department of ECE</title>
+</head>

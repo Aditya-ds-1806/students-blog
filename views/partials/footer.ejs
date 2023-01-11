@@ -1,0 +1,81 @@
+<!-- footer -->
+    <div class="container-fluid copyright footer mt-5 pb-1 px-1 text-white">
+        <span>Copyright (c) 2019 IIITDM Kancheepuram, All Rights Reserved.</span>
+    </div>
+    <!-- footer ends -->
+
+    <!-- scripts -->
+    
+    <!-- jquery v3.4.1 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- popper v1.14.7 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- bootstrap js v4.3.1 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/scripts/modal.js"></script>
+    <% if(typeof user !== 'undefined') { %>
+        <script src="/scripts/set-state.js"></script>
+    <% } %>
+    <% if (typeof route !== 'undefined' && route == "index") { %>
+        <!-- Custom JS -->
+        <% if(typeof(user) !== 'undefined') { %>
+            <script src="/scripts/index.js"></script>
+            <script src="/scripts/profile.js"></script>
+        <% } %>
+        <script src="/scripts/navbar.js"></script>
+    <% } %>
+
+    <% if (typeof route !== 'undefined' && (route == "profile" || route == 'admin')) { %>
+        <script src="/scripts/index.js"></script>
+        <script src="/scripts/profile.js"></script>
+    <% } %>
+    
+    <% if (typeof route !== 'undefined' && (route == "new" || route == "edit")) { %>
+        <!-- Summernote JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+        <!-- Summernote Tools Select -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#summernote').summernote({
+                maximumImageFileSize: 400 * 1024,
+                callbacks: {
+                    onImageUploadError: function() {
+                        alert("Maximum Image Size Limit Exceeded!");
+                    }
+                },
+                tabsize: 2,
+                height: 300,
+                minHeight: 200, // set minimum height of editor
+                maxHeight: 500,
+                fontNames: ['Courier New', 'Montserrat'],
+                fontNamesIgnoreCheck: ['Montserrat'],
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript', 'fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph', 'style']],
+                    ['height', ['height']],
+                    ['insert', ['picture', 'table', 'hr', 'link']],
+                    ['misc', ['fullscreen', 'undo', 'redo']]
+                ]
+                });
+            });
+            // $('#summernote').summernote('fontName', 'Montserrat');
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('[data-toggle="popover"]').popover();
+            });
+        </script>
+    <% } %>
+
+    <% if (typeof route !== 'undefined' && route == "show") { %>
+        <script src="/scripts/comment.js"></script>
+        <script src="/scripts/textarea.js"></script>
+    <% } %>
+    
+</body>
+
+</html>

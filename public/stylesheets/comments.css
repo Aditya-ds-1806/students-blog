@@ -1,0 +1,27 @@
+textarea.form-control {
+    resize: none;
+    overflow: hidden;
+    min-height: 10px;
+    max-height: 100px;
+}
+
+textarea.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: 2px solid #7A2865;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.btn-primary.disabled {
+    background-color: rgb(128, 120, 126);
+    border-color: rgb(128, 120, 126);
+}
+
+pre.initialism {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: none;
+    white-space: pre-wrap;
+}

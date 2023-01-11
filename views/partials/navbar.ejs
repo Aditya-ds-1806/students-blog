@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light bg-faded align-items-center p-0 <% if(route !== 'index') { %><%= 'bottom-border' %><% } %>"
+    id="nav">
+    <div class="brand">
+        <a class="navbar-brand pl-3 mr-0" href="http://www.ece.iiitdm.ac.in">
+            <img src="/images/Insignia.png" width="60" height="60" class="img-fluid d-inline-block align-top">
+        </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto bottom-border">
+            <li class="nav-item pl-2 mx-3 pl-lg-0 my-auto active">
+                <a class="nav-link" href="/">Feed</a>
+            </li>
+            <% if(isAdmin && typeof(isAdmin) !== 'undefined') { %>
+            <li class="nav-item pl-2 mx-3 pl-lg-0 my-auto">
+                <a class="nav-link text-success bg-white" href="/admin/<%= user.id %>/dashboard">Admin</a>
+            </li>
+            <% } %>
+            <li class="nav-item pl-2 mx-3 pl-lg-0 my-auto">
+                <a class="nav-link" href="">About</a>
+            </li>
+            <% if(!user) { %>
+            <li class="nav-item pl-2 mx-3 pl-lg-0 my-auto pb-3 pb-md-0" id="login">
+                <a href="/auth/google" class="btn btn-sm px-3 btn-success rounded-0 font-weight-bolder"
+                    name="button">Sign In</a href="/auth/login">
+            </li>
+            <% } else { %>
+            <li class="nav-item pl-2 mx-3 pl-lg-0 my-auto" id="submit">
+                <a class="nav-link" href="/blogs/new" tabindex="-1" aria-disabled="true">Submit</a>
+            </li>
+            <li class="nav-item pl-2 mx-3 pl-lg-0 my-auto pb-3 pb-md-0 text-md-center" id="logout">
+                <% if(user) { %>
+                <a href="/profile/<%= user.id %>"><img class="rounded-circle my-1" src="<%= user.image %>" width="40"
+                        height="40"></a>
+                <% } %>
+                <a href="/auth/logout" class="btn btn-sm px-3 btn-success rounded-0 font-weight-bolder my-1"
+                    name="button">Sign Out</a href="/auth/login">
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
+
+
+<% if (typeof(success) !== 'undefined' && success.length > 0) { %>
+<%- include('./flash.ejs', {param: success, paramMessage: "Success!"}) %>
+<% } %>
+<% if (typeof(error) !== 'undefined' && error.length > 0) { %>
+<%- include('./flash.ejs', {param: error, paramMessage: "Something went wrong! Please try again."}) %>
+<% } %>

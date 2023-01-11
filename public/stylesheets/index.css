@@ -1,0 +1,97 @@
+.no-scroll {
+	overflow-y: hidden;
+}
+
+.hero {
+	background-image: url("/images/hero.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 80vh;
+	color: #fff;
+}
+
+.hero h2 {
+	font-weight: 800;
+}
+
+.hero-content {
+	height: 100%;
+	width: 100%;
+}
+
+button.btn-outline-primary,
+#back {
+	border: 1px solid #7a2865;
+	border-radius: 0;
+	color: #7a2865;
+	font-weight: 500;
+}
+
+button.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+#back:hover {
+	border-color: #7a2865;
+	color: #fff;
+	background-color: #7a2865;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:focus,
+#back:active:focus,
+#back:focus {
+	box-shadow: 0 0 0 0.2rem rgba(122, 40, 101, 0.4);
+}
+
+.card {
+	border: none;
+	transition: all 200ms;
+	cursor: default;
+	box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.bg-card-img {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-bottom: 20%;
+}
+
+.card-title {
+	font-weight: 700;
+}
+
+@media (max-width: 767px) {
+	.bg-card-img {
+		padding-bottom: 50%;
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}
+
+i.fa-heart:hover,
+span.like-stats:hover {
+	color: #dc3545;
+	cursor: pointer;
+}
+
+i.fa-comments,
+span.comment-stats {
+	color: #007bff;
+	cursor: pointer;
+}
+
+i.fa-bookmark:hover,
+span.bookmark-stats:hover {
+	color: #28a745;
+	cursor: pointer;
+}
+
+span.liked {
+	color: #dc3545;
+}
+
+span.bookmarked {
+	color: #28a745;
+}

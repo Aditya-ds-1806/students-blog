@@ -1,0 +1,31 @@
+{
+	"name": "blog",
+	"version": "1.0.0",
+	"description": "An Express App with an aim to introduce RESTful routing and CRUD operations",
+	"main": "app.js",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"connect-flash": "^0.1.1",
+		"cookie-session": "^1.3.3",
+		"dotenv": "^16.0.3",
+		"ejs": "^3.0.1",
+		"express": "^4.17.1",
+		"fun-facts": "^1.0.5",
+		"gmail-send": "^1.8.10",
+		"html-to-text": "^5.1.1",
+		"method-override": "^3.0.0",
+		"moment": "^2.24.0",
+		"mongoose": "^5.7.13",
+		"passport": "^0.4.0",
+		"passport-google-oauth20": "^2.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.2"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node app.js"
+	},
+	"author": "Aditya D.S.",
+	"license": "ISC"
+}

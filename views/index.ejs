@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<body>
+  <!-- hero image -->
+  <div class="hero">
+    <!-- Include Navbar -->
+    <%- include("partials/navbar") %>
+
+    <div class="hero-content d-flex justify-content-center align-items-center">
+      <div class="text-center">
+        <div>
+          <h2>DESIGNING THE FUTURE, TODAY</h2>
+        </div>
+        <p>Discover what interests you</p>
+        <% if (!user) { %>
+          <a id="sign-in2" href="/auth/google" class="btn btn-sm px-3 btn-success font-weight-bolder rounded-0" name="button">Sign In</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <!-- hero image ends -->
+
+  <!-- Posts Container -->
+    <div class="container mt-5">
+        <div class="text-center">
+          <a href="#posts"><button id="posts" type="button" name="button" class="btn btn-outline-primary px-5 mb-5"><i class="far fa-newspaper mr-2"></i>POSTS</button></a>
+        </div>
+        <%- include("partials/post", {param: posts}) %>
+    </div>
+  <!-- Posts Container ends -->
+
+<%- include("partials/footer") %>

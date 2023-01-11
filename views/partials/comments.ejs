@@ -1,0 +1,29 @@
+<% if(user) { %>
+<form class="form-group row mb-4 mx-0" id="comment">
+    <label class="col-2 col-md-1 col-form-label p-0">
+        <img class="rounded-circle" src="<%= user.image %>" width="40">
+    </label>
+    <div class="col-10 col-md-11 align-self-center px-0">
+        <label for="comment-text" class="d-none"></label>
+        <textarea rows="1" id="comment-text" name="comment-text"
+            class="rounded-0 border-top-0 border-left-0 border-right-0 form-control p-0"
+            placeholder="Add a comment"></textarea>
+    </div>
+    <button class="btn btn-sm btn-primary rounded-0 ml-auto mt-1 disabled"
+        type="submit"><strong>Comment</strong></button>
+</form>
+<% } else { %>
+<div class="jumbotron bg-light text-white py-4 text-sm-center">
+    <h1 class="display-5">Not signed in!</h1>
+    <p class="lead">Please sign in to be able to comment.</p>
+    <a href="/auth/google" class="btn btn-sm px-3 btn-success rounded-0 font-weight-bolder" name="button">Sign In</a>
+</div>
+<% } %>
+
+<h3 class="mb-3"><span id="count"><%= post.comments.length %></span> Comments</h3>
+<!-- Comments -->
+<div class="container-fluid" id="comments-container">
+    <% for (let i = post.comments.length - 1; i >= 0; i--) { %>
+    <%- include("singleComment.ejs", {post: post, i: i, user: user}) %>
+    <% } %>
+</div>

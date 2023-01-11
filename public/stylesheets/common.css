@@ -1,0 +1,78 @@
+html,
+body {
+	margin: 0 !important;
+	padding: 0 !important;
+	scroll-behavior: smooth;
+	overflow-y: auto;
+}
+
+body {
+	background-color: #f2f2f2;
+	font-family: 'Montserrat', sans-serif;
+}
+
+*::selection {
+	background-color: #7a2865;
+	color: #fff;
+}
+
+.footer {
+	background-color: #7a2865;
+}
+
+.copyright {
+	font-size: 12px;
+}
+
+button.btn-outline-primary,
+.back {
+	border: 1px solid #7a2865;
+	border-radius: 0;
+	color: #7a2865;
+	font-weight: 500;
+}
+
+button.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.back:hover {
+	border-color: #7a2865;
+	color: #fff;
+	background-color: #7a2865;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:focus,
+.back:active:focus,
+.back:focus {
+	box-shadow: 0 0 0 0.2rem rgba(122, 40, 101, 0.4);
+}
+
+.switch-success label input[type=checkbox]:checked + .lever {
+	background-color: #00c851;
+}
+
+.switch-success label input[type=checkbox]:checked + .lever:after {
+	background-color: #007e33;
+}
+
+.error-fun-fact {
+	color: #f8d7da;
+	background-color: #a5003c;
+}
+
+.success-fun-fact {
+	color: #d4edda;
+	background-color: #285d2e;
+}
+
+.slideup, .slidedown {
+	max-height: 0;            
+	overflow-y: hidden;
+	-webkit-transition: max-height 0.5s ease-in-out;
+	-moz-transition: max-height 0.5s ease-in-out;
+	-o-transition: max-height 0.5s ease-in-out;
+	transition: max-height 0.5s ease-in-out;
+}
+.slidedown {            
+	max-height: 60px ;                    
+}

@@ -1,0 +1,66 @@
+<div class="container form-div">
+    <h2 class="text-center font-weight-bolder mb-4"><%= heading %></h2>
+    <form id="form" method="POST">
+        <!-- Title -->
+        <div class="form-group">
+            <label for="title">Title
+                <a style="cursor: pointer" class="text-dark" tabindex="0" role="button" data-toggle="popover"
+                    data-placement="auto" data-trigger="hover" title="Post Title"
+                    data-content="This will be the title of your post. Try keeping it short.">
+                    <i class="fas fa-question-circle"></i>
+                </a>
+            </label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="My amazing post!"
+                value="<% if(edit) { %><%= post.title %><% } %>" required>
+        </div>
+        <% if (!edit) { %>
+        <!-- Author -->
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name="author" value="<%= user.username %>" disabled>
+        </div>
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" value="<%= user.email %>" disabled>
+        </div>
+
+        <% } %>
+        <!-- Image -->
+        <div class="form-group">
+            <label for="image">Image URL
+                <a style="cursor: pointer" class="text-dark" tabindex="0" role="button" data-toggle="popover"
+                    data-placement="auto" data-trigger="hover" title="Image"
+                    data-content="This image is to help the reader get an idea about the content. Choose one carefully.">
+                    <i class="fas fa-question-circle"></i>
+                </a>
+            </label>
+            <input type="url" class="form-control" id="url" name="image" placeholder="URL"
+                value="<% if(edit)  { %> <%= post.image %> <% } %>" required>
+        </div>
+        <!-- Summernote - Post -->
+        <div class="form-group">
+            <label for="summernote">Your Post</label>
+            <textarea id="summernote" name="post">
+                <% if (edit) { %>
+                    <%= post.post %>
+                <% } else { %>
+                    <h5 class="text-center"><strong>IMPORTANT: Please Read</strong></h5>
+                    <ol>
+                        <li>This editor allows you to <strong>style and format</strong> your posts. Your posts, when approved, will be rendered in the same way.</li>
+                    </ol>
+                <% } %>
+            </textarea>
+        </div>
+        <% if(edit || typeof post === 'undefined') { %>
+        <button type="submit" class="btn btn-outline-primary"
+            formaction="/blogs<% if(edit) { %><%= "/" + post._id + "?_method=PUT" %><% } %>">Submit</button>
+        <% } %>
+        <% if(!edit) { %>
+        <button type="submit" class="btn btn-outline-primary"
+            formaction="/blogs/post/newDraft<% if(typeof post !== 'undefined' && post.isDraft) { %><%= '?draftID=' + post._id %><% } %>">Save
+            to
+            Drafts</button>
+        <% } %>
+    </form>
+</div>
