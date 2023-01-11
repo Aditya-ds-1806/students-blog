@@ -37,6 +37,7 @@ mongoose.connection.on('open', function () {
 
 const app = express();
 
+app.enable('trust proxy');
 app.set('view engine', 'ejs');
 
 app.use(
